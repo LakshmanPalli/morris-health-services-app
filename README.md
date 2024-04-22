@@ -46,6 +46,6 @@ average daily revenue for each insurance company.
 
 ------------
 modules: 
-efm - Employee and Facility Management
-mr - Management and Reporting
-pm - Patient Management
+efm - Employee and Facility Management,
+mr - Management and Reporting,
+pm - Patient Management,
