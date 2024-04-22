@@ -132,7 +132,7 @@
                 <td><?php echo $row->Salary; ?></td>
                 <td>
                     <a href="edit_employee.php?id=<?php echo $row->EmpID; ?>" class="edit-btn">✏️</a>
-                    /* this is an extra feature not mentioned in the scope of project (safe to drop) */
+                    <!-- // this is an extra feature not mentioned in the scope of project";-->
                     <a href="delete_employee.php?id=<?php echo $row->EmpID; ?>" class="delete-btn">🗑️</a>
                 </td>
             </tr>
