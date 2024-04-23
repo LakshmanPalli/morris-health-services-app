@@ -75,6 +75,7 @@
             <th>Job Class</th>
             <th>Address</th>
             <th>Salary</th>
+            <th>FacID</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -130,10 +131,9 @@
                 <td><?php echo $row->Jobclass; ?></td>
                 <td><?php echo $row->Street . ", " . $row->City . ", " . $row->State . ", " . $row->Zip; ?></td>
                 <td><?php echo $row->Salary; ?></td>
+                <td><?php echo $row->FacID; ?></td>
                 <td>
                     <a href="edit_employee.php?id=<?php echo $row->EmpID; ?>" class="edit-btn">✏️</a>
-                    <!-- // this is an extra feature not mentioned in the scope of project";-->
-                    <a href="delete_employee.php?id=<?php echo $row->EmpID; ?>" class="delete-btn">🗑️</a>
                 </td>
             </tr>
         <?php 

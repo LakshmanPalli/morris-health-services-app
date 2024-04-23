@@ -5,10 +5,11 @@
 include("config.php");
 
 // Define variables and initialize with empty values
-$ssn = $fname = $minit = $lname = $hiredate = $jobclass = $street = $city = $state = $zip = $salary = "";
-$ssn_err = $fname_err = $lname_err = $hiredate_err = $jobclass_err = $salary_err = "";
+$ssn = $fname = $minit = $lname = $hiredate = $jobclass = $street = $city = $state = $zip = $salary = $facid = "";
+$ssn_err = $fname_err = $lname_err = $hiredate_err = $jobclass_err = $salary_err = $facid_err = "";
 
-// Processing form data when form is submitted
+// Processing form data when form is submitted 
+// the below code checks whether all the fields are filled 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate SSN
     if(empty(trim($_POST["ssn"]))){
@@ -52,14 +53,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $salary = trim($_POST["salary"]);
     }
 
+    // Validate SSN
+    if(empty(trim($_POST["facid"]))){
+        $ssn_err = "Please enter facility id.";
+    } else{
+        $ssn = trim($_POST["facid"]);
+    }
+
     // Check input errors before inserting into database
-    if(empty($ssn_err) && empty($fname_err) && empty($lname_err) && empty($hiredate_err) && empty($jobclass_err) && empty($salary_err)){
+    if(empty($ssn_err) && empty($fname_err) && empty($lname_err) && empty($hiredate_err) && empty($jobclass_err) && empty($salary_err) && empty($facid_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO employee (SSN, FName, Minit, LName, Hiredate, Jobclass, Street, City, State, Zip, Salary) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO employee (SSN, FName, Minit, LName, Hiredate, Jobclass, Street, City, State, Zip, Salary, FacID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssssssssss", $param_ssn, $param_fname, $param_minit, $param_lname, $param_hiredate, $param_jobclass, $param_street, $param_city, $param_state, $param_zip, $param_salary);
+            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_ssn, $param_fname, $param_minit, $param_lname, $param_hiredate, $param_jobclass, $param_street, $param_city, $param_state, $param_zip, $param_salary, $param_facid);
             
             // Set parameters
             $param_ssn = $ssn;
@@ -73,6 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_state = $state;
             $param_zip = $zip;
             $param_salary = $salary;
+            $param_salary = $facid;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -131,8 +140,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <label for="zip">Zip:</label><br>
     <input type="text" id="zip" name="zip" value="<?php echo $zip; ?>"><br><br>
     <label for="salary">Salary:</label><br>
-    <input type="text" id="salary" name="salary" value="<?php echo $salary; ?>">
+    <input type="text" id="salary" name="facid" value="<?php echo $facid; ?>">
     <span><?php echo $salary_err; ?></span><br><br>
+    <label for="facid">FacID:</label><br>
+    <input type="text" id="facid" name="ssn" value="<?php echo $ssn; ?>">
+    <span><?php echo $facid_err; ?></span><br><br>
     <button type="submit">Add Employee</button>
 </form>
 

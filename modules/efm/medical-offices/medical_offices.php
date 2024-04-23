@@ -112,8 +112,6 @@
                     <td><?php echo $row['Desc']; ?></td>
                     <td>
                         <a class="btn btn-primary" href="edit_facility.php?id=<?php echo $row['FacID']; ?>">Edit</a>
-                        <!-- // this is an extra feature not mentioned in the scope of project";-->
-                        <a class="btn btn-danger" href="delete_facility.php?id=<?php echo $row['FacID']; ?>">Delete</a>
                     </td>
                 </tr>
                 <?php
