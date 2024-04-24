@@ -5,8 +5,8 @@
 include("config.php");
 
 // Define variables and initialize with empty values
-$ssn = $fname = $minit = $lname = $hiredate = $jobclass = $street = $city = $state = $zip = $salary = $facid = "";
-$ssn_err = $fname_err = $lname_err = $hiredate_err = $jobclass_err = $salary_err = $facid_err = "";
+$ssn = $fname = $minit = $lname = $hiredate = $jobclass = $street = $city = $state = $zip = $salary = "";
+$ssn_err = $fname_err = $lname_err = $hiredate_err = $jobclass_err = $street_err = $city_err = $state_err = $zip_err = $salary_err = "";
 
 // Processing form data when form is submitted 
 // the below code checks whether all the fields are filled 
@@ -31,6 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $lname = trim($_POST["lname"]);
     }
+	
+	if(!empty(trim($_POST["minit"]))){
+        $minit = trim($_POST["minit"]);
+    }
 
     // Validate Hire Date
     if(empty(trim($_POST["hiredate"]))){
@@ -46,6 +50,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $jobclass = trim($_POST["jobclass"]);
     }
 
+    // Validate Street
+    if(empty(trim($_POST["street"]))){
+        $street_err = "Please enter street.";
+    } else{
+        $street = trim($_POST["street"]);
+    }
+	
+    // Validate City
+    if(empty(trim($_POST["city"]))){
+        $city_err = "Please enter city.";
+    } else{
+        $city = trim($_POST["city"]);
+    }
+
+    // Validate State
+    if(empty(trim($_POST["state"]))){
+        $state_err = "Please enter state.";
+    } else{
+        $state = trim($_POST["state"]);
+    }
+	
+    // Validate Zip
+    if(empty(trim($_POST["zip"]))){
+        $zip_err = "Please enter zip.";
+    } else{
+        $zip = trim($_POST["zip"]);
+    }
+
     // Validate Salary
     if(empty(trim($_POST["salary"]))){
         $salary_err = "Please enter salary.";
@@ -53,21 +85,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $salary = trim($_POST["salary"]);
     }
 
-    // Validate SSN
-    if(empty(trim($_POST["facid"]))){
-        $ssn_err = "Please enter facility id.";
-    } else{
-        $ssn = trim($_POST["facid"]);
-    }
 
     // Check input errors before inserting into database
-    if(empty($ssn_err) && empty($fname_err) && empty($lname_err) && empty($hiredate_err) && empty($jobclass_err) && empty($salary_err) && empty($facid_err)){
+    if(empty($ssn_err) && empty($fname_err) && empty($lname_err) && empty($hiredate_err) && empty($jobclass_err) && empty($street_err) && empty($city_err) && empty($state_err) && empty($zip_err) && empty($salary_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO employee (SSN, FName, Minit, LName, Hiredate, Jobclass, Street, City, State, Zip, Salary, FacID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO employee (SSN, FName, Minit, LName, Hiredate, Jobclass, Street, City, State, Zip, Salary) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_ssn, $param_fname, $param_minit, $param_lname, $param_hiredate, $param_jobclass, $param_street, $param_city, $param_state, $param_zip, $param_salary, $param_facid);
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $param_ssn, $param_fname, $param_minit, $param_lname, $param_hiredate, $param_jobclass, $param_street, $param_city, $param_state, $param_zip, $param_salary);
             
             // Set parameters
             $param_ssn = $ssn;
@@ -81,7 +107,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_state = $state;
             $param_zip = $zip;
             $param_salary = $salary;
-            $param_salary = $facid;
+			
+			
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -115,7 +142,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="ssn">SSN:</label><br>
-    <input type="text" id="ssn" name="ssn" value="<?php echo $ssn; ?>">
+    <input type="text" id="ssn" name="ssn" pattern="[0-9.]+" value="<?php echo $ssn; ?>">
     <span><?php echo $ssn_err; ?></span><br><br>
     <label for="fname">First Name:</label><br>
     <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>">
@@ -133,18 +160,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <span><?php echo $jobclass_err; ?></span><br><br>
     <label for="street">Street:</label><br>
     <input type="text" id="street" name="street" value="<?php echo $street; ?>"><br><br>
-    <label for="city">City:</label><br>
+    <span><?php echo $street_err; ?></span><br><br>    
+	<label for="city">City:</label><br>
     <input type="text" id="city" name="city" value="<?php echo $city; ?>"><br><br>
+    <span><?php echo $city_err; ?></span><br><br>
     <label for="state">State:</label><br>
     <input type="text" id="state" name="state" value="<?php echo $state; ?>"><br><br>
+    <span><?php echo $state_err; ?></span><br><br>
     <label for="zip">Zip:</label><br>
     <input type="text" id="zip" name="zip" value="<?php echo $zip; ?>"><br><br>
+    <span><?php echo $zip_err; ?></span><br><br>
     <label for="salary">Salary:</label><br>
-    <input type="text" id="salary" name="facid" value="<?php echo $facid; ?>">
+    <input type="text" id="salary" name="salary" value="<?php echo $salary; ?>">
     <span><?php echo $salary_err; ?></span><br><br>
-    <label for="facid">FacID:</label><br>
-    <input type="text" id="facid" name="ssn" value="<?php echo $ssn; ?>">
-    <span><?php echo $facid_err; ?></span><br><br>
     <button type="submit">Add Employee</button>
 </form>
 
