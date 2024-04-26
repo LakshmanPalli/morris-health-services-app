@@ -70,7 +70,7 @@
         $query = "SELECT * FROM Patient";
         
         if (!empty($search)) {
-            $query .= " WHERE First_Name LIKE '%$search%'";
+            $query .= " WHERE FName LIKE '%$search%'";
         }
 
         $query .= " ORDER BY First_Name";
