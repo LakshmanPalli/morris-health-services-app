@@ -27,7 +27,7 @@ if(isset($_GET['id'])) {
         $state = $row['State'];
         $zip = $row['Zip'];
         $ssn = $row['SSN'];
-        $ins_id = $row['Insurance_ID'];
+        $ins_id = $row['Ins_id'];
 
         // Check if the form is submitted for updating
         if(isset($_POST['update'])) {
@@ -43,7 +43,7 @@ if(isset($_GET['id'])) {
             $ins_id = $_POST['ins_id'];
 
             // SQL query to update patient details
-            $update_sql = "UPDATE Patient SET FName='$fname', Minit='$minit', LName='$lname', Street='$street', City='$city', State='$state', Zip='$zip', SSN='$ssn', Insurance_ID='$ins_id' WHERE Pid='$pid'";
+            $update_sql = "UPDATE Patient SET FName='$fname', Minit='$minit', LName='$lname', Street='$street', City='$city', State='$state', Zip='$zip', SSN='$ssn', Ins_id='$ins_id' WHERE Pid='$pid'";
 
             // Execute the query
             if(mysqli_query($con, $update_sql)) {
