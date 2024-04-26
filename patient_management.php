@@ -10,7 +10,7 @@
   <h3 class="w3-bar-item">Menu</h3>
   <a href="modules/pm/Patient/patients.php" class="w3-bar-item w3-button">Patients</a>
   <a href="modules/pm/appointments/appointments.php" class="w3-bar-item w3-button">Appointments</a>
-  <a href="modules/pm/invoice/Invoice.php" class="w3-bar-item w3-button">Insurance Company</a>
+  <a href="modules/pm/invoice/Invoice.php" class="w3-bar-item w3-button">Invoice</a>
   </div>
       
 </body>
