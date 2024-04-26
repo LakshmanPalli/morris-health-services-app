@@ -4,13 +4,13 @@
 -- Dumping data for table `Facility`
 --
 
-INSERT INTO Facility (FacID, Street, City, State, Zip, Size, Office_Count, Room_Count, P_Code, FacType, `Desc`)
+INSERT INTO Facility (Street, City, State, Zip, Size, Office_Count, Room_Count, P_Code, FacType, `Desc`)
 VALUES
-(1, '123 Main St', 'New York', 'NY', '10001', 'Large', 10, 20, 1234, 'Hospital', 'Main Hospital'),
-(2, '456 Elm St', 'Los Angeles', 'CA', '90001', 'Medium', 8, 15, 5678, 'Clinic', 'Downtown Clinic'),
-(3, '789 Oak St', 'Chicago', 'IL', '60001', 'Small', 5, 10, 91011, 'Urgent Care', 'City Urgent Care'),
-(4, '101 Pine St', 'Houston', 'TX', '77001', 'Large', 12, 25, 121314, 'Hospital', 'Regional Hospital'),
-(5, '202 Cedar St', 'Miami', 'FL', '33001', 'Medium', 8, 15, 151617, 'Clinic', 'Beachside Clinic');
+('123 Main St', 'New York', 'NY', '10001', 'Large', 10, 20, 1234, 'Hospital', 'Main Hospital'),
+('456 Elm St', 'Los Angeles', 'CA', '90001', 'Medium', 8, 15, 5678, 'Clinic', 'Downtown Clinic'),
+('789 Oak St', 'Chicago', 'IL', '60001', 'Small', 5, 10, 91011, 'Urgent Care', 'City Urgent Care'),
+('101 Pine St', 'Houston', 'TX', '77001', 'Large', 12, 25, 121314, 'Hospital', 'Regional Hospital'),
+('202 Cedar St', 'Miami', 'FL', '33001', 'Medium', 8, 15, 151617, 'Clinic', 'Beachside Clinic');
 
 -- --------------------------------------------------------
 
@@ -97,44 +97,30 @@ VALUES
 --
 
 -- Sample data for Patient table
-INSERT INTO Patient (Pid, FName, Minit, LName, Street, City, State, Zip, SSN, Ins_id)
+INSERT INTO Patient (FName, Minit, LName, Street, City, State, Zip, SSN, Ins_id)
 VALUES
-(1, 'Alice', 'M', 'Johnson', '123 Oak St', 'New York', 'NY', '10001', 123456789, 1),       -- .
-(2, 'Bob', 'N', 'Smith', '456 Elm St', 'Los Angeles', 'CA', '90001', 234567890, 2),         -- .
-(3, 'Charlie', 'O', 'Williams', '789 Maple St', 'Chicago', 'IL', '60001', 345678901, 3),     -- .
-(4, 'David', 'P', 'Brown', '101 Pine St', 'Houston', 'TX', '77001', 456789012, 4),           -- .
-(5, 'Emma', 'Q', 'Jones', '202 Cedar St', 'Miami', 'FL', '33001', 567890123, 5),             -- .
-(6, 'Frank', 'R', 'Davis', '303 Elm St', 'Seattle', 'WA', '98001', 123456789, 1),            -- .
-(7, 'Grace', 'S', 'Miller', '404 Maple St', 'San Francisco', 'CA', '94101', 234567890, 2),   -- .
-(8, 'Hannah', 'T', 'Wilson', '505 Oak St', 'Boston', 'MA', '02101', 345678901, 3),           -- .
-(9, 'Ian', 'U', 'Taylor', '606 Pine St', 'Atlanta', 'GA', '30301', 456789012, 4),            -- .
-(10, 'Julia', 'V', 'Anderson', '707 Cedar St', 'Denver', 'CO', '80201', 567890123, 5);       -- .
+('Alice', 'M', 'Johnson', '123 Oak St', 'New York', 'NY', '10001', 123456789, 1),       -- .
+('Bob', 'N', 'Smith', '456 Elm St', 'Los Angeles', 'CA', '90001', 234567890, 2),         -- .
+('Charlie', 'O', 'Williams', '789 Maple St', 'Chicago', 'IL', '60001', 345678901, 3),     -- .
+('David', 'P', 'Brown', '101 Pine St', 'Houston', 'TX', '77001', 456789012, 4),           -- .
+('Emma', 'Q', 'Jones', '202 Cedar St', 'Miami', 'FL', '33001', 567890123, 5),             -- .
+('Frank', 'R', 'Davis', '303 Elm St', 'Seattle', 'WA', '98001', 123456789, 1),            -- .
+('Grace', 'S', 'Miller', '404 Maple St', 'San Francisco', 'CA', '94101', 234567890, 2),   -- .
+('Hannah', 'T', 'Wilson', '505 Oak St', 'Boston', 'MA', '02101', 345678901, 3),           -- .
+('Ian', 'U', 'Taylor', '606 Pine St', 'Atlanta', 'GA', '30301', 456789012, 4),            -- .
+('Julia', 'V', 'Anderson', '707 Cedar St', 'Denver', 'CO', '80201', 567890123, 5);       -- .
 -- --------------------------------------------------------
 
 --
 -- Dumping data for table `Invoice`
 --
-INSERT INTO `Invoice` (Inv_id, Inv_date, Ins_id)
+INSERT INTO `Invoice` (Inv_date, Ins_id)
 VALUES
-(1, UNIX_TIMESTAMP('2024-04-01'), 1),   -- Invoice 1 created on 2024-04-01, insurance company 1
-(2, UNIX_TIMESTAMP('2024-04-02'), 2),   -- Invoice 2 created on 2024-04-02, insurance company 2
-(3, UNIX_TIMESTAMP('2024-04-03'), 3),   -- Invoice 3 created on 2024-04-03, insurance company 3
-(4, UNIX_TIMESTAMP('2024-04-04'), 4),   -- Invoice 4 created on 2024-04-04, insurance company 4
-(5, UNIX_TIMESTAMP('2024-04-05'), 5);   -- Invoice 5 created on 2024-04-05, insurance company 5
-
--- --------------------------------------------------------
-
-
---
--- Dumping data for table `Invoice Detail`
---
-INSERT INTO `Invoice Detail` (Inv_id, SSN, Pid, Cost)
-VALUES
-(1, 123456789, 1, 100),   -- Invoice 1 for patient 1 with doctor 123456789, cost $100
-(2, 234567890, 2, 150),   -- Invoice 2 for patient 2 with doctor 234567890, cost $150
-(3, 345678901, 3, 200),   -- Invoice 3 for patient 3 with doctor 345678901, cost $200
-(4, 456789012, 4, 250),   -- Invoice 4 for patient 4 with doctor 456789012, cost $250
-(5, 567890123, 5, 300);   -- Invoice 5 for patient 5 with doctor 567890123, cost $300
+(UNIX_TIMESTAMP('2024-04-01'), 1),   -- Invoice 1 created on 2024-04-01, insurance company 1
+(UNIX_TIMESTAMP('2024-04-02'), 2),   -- Invoice 2 created on 2024-04-02, insurance company 2
+(UNIX_TIMESTAMP('2024-04-03'), 3),   -- Invoice 3 created on 2024-04-03, insurance company 3
+(UNIX_TIMESTAMP('2024-04-04'), 4),   -- Invoice 4 created on 2024-04-04, insurance company 4
+(UNIX_TIMESTAMP('2024-04-05'), 5);   -- Invoice 5 created on 2024-04-05, insurance company 5
 
 -- --------------------------------------------------------
 
