@@ -86,7 +86,7 @@ CREATE TABLE `Admin` (
 --
 
 CREATE TABLE `Patient` (
-  `Pid` int(10) NOT NULL,
+  `Pid` int(10) NOT NULL AUTO_INCREMENT,
   `FName` varchar(120) DEFAULT NULL,
   `Minit` varchar(50) DEFAULT NULL,
   `LName` varchar(50) DEFAULT NULL,
@@ -116,24 +116,11 @@ CREATE TABLE `Insurance Company` (
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Table structure for table `Invoice Detail`
---
-
-CREATE TABLE `Invoice Detail` (
-  `Inv_id` int(10) NOT NULL,
-  `SSN` varchar(50) NOT NULL,
-  `Pid` int(10) NOT NULL,
-  `Cost` int(10) DEFAULT NULL,
-  CONSTRAINT doctor_fk_detail FOREIGN KEY (`SSN`) REFERENCES `Doctor` (`SSN`),
-  CONSTRAINT patient_fk_detail FOREIGN KEY (`Pid`) REFERENCES `Patient` (`Pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
 -- Table structure for table `Invoice`
 --
 
 CREATE TABLE `Invoice` (
-  `Inv_id` int(10) NOT NULL,
+  `Inv_id` int(10) NOT NULL AUTO_INCREMENT,
   `Inv_date` int(10) NOT NULL,
   `Ins_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`Inv_id`),
@@ -144,7 +131,7 @@ CREATE TABLE `Invoice` (
 -- Table structure for table `Facility`
 --
 CREATE TABLE `Facility` (
-  `FacID` int(10) NOT NULL,
+  `FacID` int(10) NOT NULL AUTO_INCREMENT,
   `Street` varchar(120) DEFAULT NULL,
   `City` varchar(50) DEFAULT NULL,
   `State` varchar(50) DEFAULT NULL,
@@ -175,10 +162,13 @@ CREATE TABLE `Appointment` (
   `SSN` varchar(50) NOT NULL,
   `Pid` int(10) NOT NULL, -- Comma added
   `Date_Time` timestamp NULL DEFAULT current_timestamp(),
+  `Inv_id` int(10) DEFAULT NULL,
+  `Cost` int(10) DEFAULT NULL,
   PRIMARY KEY (`SSN`, `Pid`, `FacID`, `Date_Time`),
   CONSTRAINT appointment_fk_emp FOREIGN KEY (`SSN`) REFERENCES `Doctor` (`SSN`),
   CONSTRAINT appointment_fk_patient FOREIGN KEY (`Pid`) REFERENCES `Patient` (`Pid`),
-  CONSTRAINT appointment_fk_facility FOREIGN KEY (`FacID`) REFERENCES `Facility` (`FacID`)
+  CONSTRAINT appointment_fk_facility FOREIGN KEY (`FacID`) REFERENCES `Facility` (`FacID`),
+  CONSTRAINT appointment_fk_invoice FOREIGN KEY (`Inv_id`) REFERENCES `Invoice` (`Inv_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
