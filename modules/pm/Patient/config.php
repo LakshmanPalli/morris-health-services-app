@@ -2,7 +2,7 @@
     // echo "DB Connected";
     $serverName = 'localhost';
     $userName = 'root';
-    $password = 'root123';
+    $password = '';
     $database = 'morris_healthservice';
     
     // creating connection to database
