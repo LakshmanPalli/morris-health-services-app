@@ -48,16 +48,16 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Patient ID</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Last Name</th>
+            <th>Pid</th>
+            <th>FName</th>
+            <th>Minit</th>
+            <th>LName</th>
             <th>Street</th>
             <th>City</th>
             <th>State</th>
             <th>Zip</th>
             <th>SSN</th>
-            <th>Insurance ID</th>
+            <th>Ins_id</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -83,18 +83,18 @@
         ?>
             <tr>
                 <td><?php echo $count; ?></td>
-                <td><?php echo $row['Patient_ID']; ?></td>
-                <td><?php echo $row['First_Name']; ?></td>
-                <td><?php echo $row['Middle_Name']; ?></td>
-                <td><?php echo $row['Last_Name']; ?></td>
+                <td><?php echo $row['Pid']; ?></td>
+                <td><?php echo $row['FName']; ?></td>
+                <td><?php echo $row['Minit']; ?></td>
+                <td><?php echo $row['LName']; ?></td>
                 <td><?php echo $row['Street']; ?></td>
                 <td><?php echo $row['City']; ?></td>
                 <td><?php echo $row['State']; ?></td>
                 <td><?php echo $row['Zip']; ?></td>
                 <td><?php echo $row['SSN']; ?></td>
-                <td><?php echo $row['Insurance_ID']; ?></td>
+                <td><?php echo $row['Ins_id']; ?></td>
                 <td>
-                    <a href="edit_patient.php?id=<?php echo $row['Patient_ID']; ?>" class="edit-btn">✏️</a>
+                    <a href="edit_patient.php?id=<?php echo $row['Pid']; ?>" class="edit-btn">✏️</a>
                 </td>
             </tr>
         <?php 

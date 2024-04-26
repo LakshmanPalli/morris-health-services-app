@@ -1,3 +1,5 @@
+<!-- A dummy class file to test the ui components, not included in the main project -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
