@@ -82,13 +82,13 @@ VALUES
 -- Dumping data for table `Insurance Company`
 --
 
-INSERT INTO `Insurance Company` (Ins_id, Name, Street, City, State, Zip)
+INSERT INTO `Insurance Company` (Name, Street, City, State, Zip)
 VALUES
-(1, 'ABC Insurance', '123 Main St', 'New York', 'NY', '10001'),
-(2, 'XYZ Insurance', '456 Elm St', 'Los Angeles', 'CA', '90001'),
-(3, '123 Insurance', '789 Oak St', 'Chicago', 'IL', '60001'),
-(4, '456 Insurance', '101 Pine St', 'Houston', 'TX', '77001'),
-(5, '789 Insurance', '202 Maple St', 'Miami', 'FL', '33001');
+('ABC Insurance', '123 Main St', 'New York', 'NY', '10001'),
+('XYZ Insurance', '456 Elm St', 'Los Angeles', 'CA', '90001'),
+('123 Insurance', '789 Oak St', 'Chicago', 'IL', '60001'),
+('456 Insurance', '101 Pine St', 'Houston', 'TX', '77001'),
+('789 Insurance', '202 Maple St', 'Miami', 'FL', '33001');
 
 -- --------------------------------------------------------
 

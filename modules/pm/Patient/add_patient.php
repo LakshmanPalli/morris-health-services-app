@@ -17,6 +17,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate Middle Name
     // Middle name is optional, so no validation required
+	if(!empty(trim($_POST["middleName"]))){
+        $minit = trim($_POST["middleName"]);
+    }
+
 
     // Validate Last Name
     if(empty(trim($_POST["lastName"]))){
@@ -70,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting into database
     if(empty($firstName_err) && empty($lastName_err) && empty($street_err) && empty($city_err) && empty($state_err) && empty($zip_err) && empty($ssn_err) && empty($insuranceID_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO Patient (First_Name, Middle_Name, Last_Name, Street, City, State, Zip, SSN, Insurance_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Patient (FName, Minit, LName, Street, City, State, Zip, SSN, Ins_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters

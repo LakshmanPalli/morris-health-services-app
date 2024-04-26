@@ -171,7 +171,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <input type="text" id="zip" name="zip" value="<?php echo $zip; ?>"><br><br>
     <span><?php echo $zip_err; ?></span><br><br>
     <label for="salary">Salary:</label><br>
-    <input type="text" id="salary" name="salary" value="<?php echo $salary; ?>">
+    <input type="text" id="salary" name="salary" pattern="[0-9.]+" value="<?php echo $salary; ?>">
     <span><?php echo $salary_err; ?></span><br><br>
     <button type="submit">Add Employee</button>
 </form>
