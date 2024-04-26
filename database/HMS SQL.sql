@@ -106,7 +106,7 @@ CREATE TABLE `Patient` (
 --
 
 CREATE TABLE `Insurance Company` (
-  `Ins_id` int(10) NOT NULL,
+  `Ins_id` int(10) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) DEFAULT NULL,
   `Street` varchar(50) DEFAULT NULL,
   `City` varchar(50) DEFAULT NULL,
