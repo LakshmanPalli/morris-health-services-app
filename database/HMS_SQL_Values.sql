@@ -19,26 +19,26 @@ VALUES
 --
 INSERT INTO employee (SSN, FName, Minit, LName, Street, City, State, Zip, Salary, Hiredate, Jobclass, FacID)
 VALUES
-(123456789, 'John', 'D', 'Doe', '123 Main St', 'New York', 'NY', '10001', 60000, '2023-01-15', 'Staff', 1),
-(234567890, 'Jane', 'M', 'Smith', '456 Elm St', 'Los Angeles', 'CA', '90001', 70000, '2022-11-20', 'Manager', 2),
-(345678901, 'Michael', 'A', 'Johnson', '789 Oak St', 'Chicago', 'IL', '60001', 55000, '2023-03-10', 'Staff', 3),
-(456789012, 'Emily', 'N', 'Brown', '101 Pine St', 'Houston', 'TX', '77001', 65000, '2023-05-05', 'Manager', 4),
-(567890123, 'David', 'R', 'Wilson', '202 Maple St', 'Miami', 'FL', '33001', 60000, '2022-12-30', 'Staff', 5),
-(678901234, 'Sarah', 'K', 'Taylor', '303 Cedar St', 'Seattle', 'WA', '98001', 75000, '2023-02-18', 'Manager', 1),
-(789012345, 'Robert', 'J', 'Miller', '404 Oak St', 'San Francisco', 'CA', '94101', 70000, '2022-10-05', 'Staff', 2),
-(890123456, 'Jennifer', 'L', 'Lee', '505 Elm St', 'Boston', 'MA', '02101', 60000, '2023-04-20', 'Manager', 3),
-(901234567, 'Daniel', 'P', 'Clark', '606 Pine St', 'Atlanta', 'GA', '30301', 65000, '2022-09-15', 'Staff', 4),
-(912345678, 'Michelle', 'T', 'Adams', '707 Maple St', 'Denver', 'CO', '80201', 70000, '2023-06-10', 'Manager', 5),
-(123123123, 'Jessica', 'E', 'Garcia', '808 Pine St', 'San Diego', 'CA', '92101', 60000, '2023-03-25', 'Staff', 1),
-(234234234, 'Andrew', 'F', 'Martinez', '909 Elm St', 'Portland', 'OR', '97201', 70000, '2022-12-10', 'Manager', 2),
-(345345345, 'Emily', 'G', 'Lopez', '101 Oak St', 'Las Vegas', 'NV', '89101', 55000, '2023-05-20', 'Staff', 3),
-(456456456, 'Christopher', 'H', 'Hernandez', '202 Cedar St', 'Phoenix', 'AZ', '85001', 65000, '2023-01-05', 'Manager', 4),
-(567567567, 'Maria', 'I', 'Gonzalez', '303 Pine St', 'Austin', 'TX', '78701', 60000, '2022-11-30', 'Staff', 5),
-(678678678, 'David', 'J', 'Perez', '404 Elm St', 'San Antonio', 'TX', '78201', 75000, '2023-02-15', 'Manager', 1),
-(789789789, 'Jessica', 'K', 'Ramirez', '505 Oak St', 'Dallas', 'TX', '75201', 70000, '2022-10-20', 'Staff', 2),
-(890890890, 'Kevin', 'L', 'Torres', '606 Cedar St', 'Fort Worth', 'TX', '76101', 60000, '2023-04-05', 'Manager', 3),
-(901901901, 'Ashley', 'M', 'Flores', '707 Elm St', 'El Paso', 'TX', '79901', 65000, '2022-09-30', 'Staff', 4),
-(912912912, 'Michael', 'N', 'Rivera', '808 Pine St', 'Seattle', 'WA', '98101', 70000, '2023-06-15', 'Manager', 5);
+(123456789, 'John', 'D', 'Doe', '123 Main St', 'New York', 'NY', '10001', 60000, '2023-01-15', 'Doctor', 1),
+(234567890, 'Jane', 'M', 'Smith', '456 Elm St', 'Los Angeles', 'CA', '90001', 70000, '2022-11-20', 'Doctor', 2),
+(345678901, 'Michael', 'A', 'Johnson', '789 Oak St', 'Chicago', 'IL', '60001', 55000, '2023-03-10', 'Doctor', 3),
+(456789012, 'Emily', 'N', 'Brown', '101 Pine St', 'Houston', 'TX', '77001', 65000, '2023-05-05', 'Doctor', 4),
+(567890123, 'David', 'R', 'Wilson', '202 Maple St', 'Miami', 'FL', '33001', 60000, '2022-12-30', 'Doctor', 5),
+(678901234, 'Sarah', 'K', 'Taylor', '303 Cedar St', 'Seattle', 'WA', '98001', 75000, '2023-02-18', 'Other_HCP', 1),
+(789012345, 'Robert', 'J', 'Miller', '404 Oak St', 'San Francisco', 'CA', '94101', 70000, '2022-10-05', 'Other_HCP', 2),
+(890123456, 'Jennifer', 'L', 'Lee', '505 Elm St', 'Boston', 'MA', '02101', 60000, '2023-04-20', 'Other_HCP', 3),
+(901234567, 'Daniel', 'P', 'Clark', '606 Pine St', 'Atlanta', 'GA', '30301', 65000, '2022-09-15', 'Other_HCP', 4),
+(912345678, 'Michelle', 'T', 'Adams', '707 Maple St', 'Denver', 'CO', '80201', 70000, '2023-06-10', 'Other_HCP', 5),
+(123123123, 'Jessica', 'E', 'Garcia', '808 Pine St', 'San Diego', 'CA', '92101', 60000, '2023-03-25', 'Nurse', 1),
+(234234234, 'Andrew', 'F', 'Martinez', '909 Elm St', 'Portland', 'OR', '97201', 70000, '2022-12-10', 'Nurse', 2),
+(345345345, 'Emily', 'G', 'Lopez', '101 Oak St', 'Las Vegas', 'NV', '89101', 55000, '2023-05-20', 'Nurse', 3),
+(456456456, 'Christopher', 'H', 'Hernandez', '202 Cedar St', 'Phoenix', 'AZ', '85001', 65000, '2023-01-05', 'Nurse', 4),
+(567567567, 'Maria', 'I', 'Gonzalez', '303 Pine St', 'Austin', 'TX', '78701', 60000, '2022-11-30', 'Nurse', 5),
+(678678678, 'David', 'J', 'Perez', '404 Elm St', 'San Antonio', 'TX', '78201', 75000, '2023-02-15', 'Admin', 1),
+(789789789, 'Jessica', 'K', 'Ramirez', '505 Oak St', 'Dallas', 'TX', '75201', 70000, '2022-10-20', 'Admin', 2),
+(890890890, 'Kevin', 'L', 'Torres', '606 Cedar St', 'Fort Worth', 'TX', '76101', 60000, '2023-04-05', 'Admin', 3),
+(901901901, 'Ashley', 'M', 'Flores', '707 Elm St', 'El Paso', 'TX', '79901', 65000, '2022-09-30', 'Admin', 4),
+(912912912, 'Michael', 'N', 'Rivera', '808 Pine St', 'Seattle', 'WA', '98101', 70000, '2023-06-15', 'Admin', 5);
 
 -- Sample data for Doctor subclass
 INSERT INTO Doctor (SSN, Speciality, BO_date)
