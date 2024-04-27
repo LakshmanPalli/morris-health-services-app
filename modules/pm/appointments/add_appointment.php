@@ -3,7 +3,7 @@
 include("config.php");
 
 // Define variables and initialize with empty values
-$SSN = $Pid = $FacID = $Date_Time = "";
+$SSN = $Pid = $FacID = $Date_Time = $Cost = $Inv_id = "";
 $SSN_err = $Pid_err = $FacID_err = $Date_Time_err = "";
 
 // Processing form data when form is submitted
@@ -36,20 +36,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $Date_Time = trim($_POST["Date_Time"]);
     }
     
+    // Validate Cost
+    if(empty(trim($_POST["Cost"]))){
+        $Cost = "";
+    } else{
+        $Cost = trim($_POST["Cost"]);
+    }
+    
+    // Validate Inv_id
+    if(empty(trim($_POST["Inv_id"]))){
+        $Inv_id = "";
+    } else{
+        $Inv_id = trim($_POST["Inv_id"]);
+    }
+    
     // Check input errors before inserting into database
     if(empty($SSN_err) && empty($Pid_err) && empty($FacID_err) && empty($Date_Time_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO Appointment (SSN, Pid, FacID, Date_Time) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO Appointment (SSN, Pid, FacID, Date_Time, Cost, Inv_id) VALUES (?, ?, ?, ?, ?, ?)";
         
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssss", $param_SSN, $param_Pid, $param_FacID, $param_Date_Time);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_SSN, $param_Pid, $param_FacID, $param_Date_Time, $param_Cost, $param_Inv_id);
             
             // Set parameters
             $param_SSN = $SSN;
             $param_Pid = $Pid;
             $param_FacID = $FacID;
             $param_Date_Time = $Date_Time;
+            $param_Cost = $Cost;
+            $param_Inv_id = $Inv_id;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -124,6 +140,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <label for="Date_Time">Date and Time:</label><br>
     <input type="datetime-local" id="Date_Time" name="Date_Time" value="<?php echo $Date_Time; ?>">
     <span><?php echo $Date_Time_err; ?></span><br><br>
+
+    <label for="Cost">Cost:</label><br>
+    <input type="text" id="Cost" name="Cost" value="<?php echo $Cost; ?>"><br><br>
+
+    <label for="Inv_id">Invoice ID:</label><br>
+    <input type="text" id="Inv_id" name="Inv_id" value="<?php echo $Inv_id; ?>"><br><br>
 
     <button type="submit">Add Appointment</button>
 </form>
