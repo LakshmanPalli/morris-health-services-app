@@ -46,12 +46,7 @@
         background-color: #0056b3;
     }
 
-    .appointment-status-select {
-        padding: 6px 10px;
-        border-radius: 4px;
-    }
-
-    .add-appointment-btn {
+    .edit-cost-btn {
         padding: 6px 10px;
         background-color: #28a745; /* Green */
         color: #fff;
@@ -60,7 +55,7 @@
         cursor: pointer;
     }
 
-    .add-appointment-btn:hover {
+    .edit-cost-btn:hover {
         background-color: #218838;
     }
 </style>
@@ -78,6 +73,7 @@
             <th>Pid</th>
             <th>FacID</th>
             <th>Date_Time</th>
+            <th>Cost</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -87,7 +83,7 @@
         include("config.php");
 
         // Retrieve data from the database sorted based on SSN
-        $sql = "SELECT SSN, Pid, FacID, Date_Time
+        $sql = "SELECT SSN, Pid, FacID, Date_Time, Cost
                 FROM Appointment
                 ORDER BY SSN";
         $result = mysqli_query($con, $sql);
@@ -102,17 +98,16 @@
                     <td><?php echo $row['Pid']; ?></td>
                     <td><?php echo $row['FacID']; ?></td>
                     <td><?php echo $row['Date_Time']; ?></td>
+                    <td><?php echo $row['Cost']; ?></td>
                     <td>
-                        <?php if ($row['Appointment_Status'] == 'Completed') : ?>
-                            <button class="generate-invoice-btn">Generate Invoice</button>
-                        <?php endif; ?>
+                        <button class="edit-cost-btn" onclick="location.href='add_appointment.php'">Edit</button>
                     </td>
                 </tr>
                 <?php
             }
         } else {
             // No appointments found
-            echo "<tr><td colspan='5'>No appointments found</td></tr>";
+            echo "<tr><td colspan='6'>No appointments found</td></tr>";
         }
         ?>
     </tbody>
