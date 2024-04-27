@@ -50,11 +50,26 @@
         padding: 6px 10px;
         border-radius: 4px;
     }
+
+    .add-appointment-btn {
+        padding: 6px 10px;
+        background-color: #28a745; /* Green */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .add-appointment-btn:hover {
+        background-color: #218838;
+    }
 </style>
 </head>
 <body>
 
 <h2>All Appointments</h2>
+
+<button class="add-appointment-btn" onclick="location.href='add_appointment.php'">Add Appointment</button>
 
 <table>
     <thead>

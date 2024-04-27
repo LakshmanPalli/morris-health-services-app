@@ -73,7 +73,7 @@
             $query .= " WHERE FName LIKE '%$search%'";
         }
 
-        $query .= " ORDER BY First_Name";
+        $query .= " ORDER BY FName";
         
         $stmt = $con->prepare($query);
         $stmt->execute();
