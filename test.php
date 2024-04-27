@@ -80,5 +80,10 @@
     </tbody>
 </table>
 
+
+// Add js back button, essential component to use across system
+        echo "<br><a href='javascript:history.back()' class='back-btn'>Back</a>";
+   
+
 </body>
 </html>
