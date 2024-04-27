@@ -78,7 +78,6 @@
             <th>Pid</th>
             <th>FacID</th>
             <th>Date_Time</th>
-            <th>Appointment Status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -88,7 +87,7 @@
         include("config.php");
 
         // Retrieve data from the database sorted based on SSN
-        $sql = "SELECT SSN, Pid, FacID, Date_Time, Appointment_Status
+        $sql = "SELECT SSN, Pid, FacID, Date_Time
                 FROM Appointment
                 ORDER BY SSN";
         $result = mysqli_query($con, $sql);
@@ -104,13 +103,6 @@
                     <td><?php echo $row['FacID']; ?></td>
                     <td><?php echo $row['Date_Time']; ?></td>
                     <td>
-                        <select class="appointment-status-select">
-                            <option value="Scheduled" <?php echo ($row['Appointment_Status'] == 'Scheduled') ? 'selected' : ''; ?>>Scheduled</option>
-                            <option value="In Progress" <?php echo ($row['Appointment_Status'] == 'In Progress') ? 'selected' : ''; ?>>In Progress</option>
-                            <option value="Completed" <?php echo ($row['Appointment_Status'] == 'Completed') ? 'selected' : ''; ?>>Completed</option>
-                        </select>
-                    </td>
-                    <td>
                         <?php if ($row['Appointment_Status'] == 'Completed') : ?>
                             <button class="generate-invoice-btn">Generate Invoice</button>
                         <?php endif; ?>
@@ -120,7 +112,7 @@
             }
         } else {
             // No appointments found
-            echo "<tr><td colspan='6'>No appointments found</td></tr>";
+            echo "<tr><td colspan='5'>No appointments found</td></tr>";
         }
         ?>
     </tbody>
