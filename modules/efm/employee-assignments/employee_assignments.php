@@ -63,7 +63,6 @@
             <th>Facility Zip</th>
             <th>Facility Type</th>
             <th>Description</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
