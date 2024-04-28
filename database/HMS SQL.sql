@@ -158,12 +158,14 @@ ALTER TABLE `Patient`
 --
 
 CREATE TABLE `Appointment` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `FacID` int(10) NOT NULL,
   `SSN` varchar(50) NOT NULL,
   `Pid` int(10) NOT NULL, -- Comma added
   `Date_Time` timestamp NULL DEFAULT current_timestamp(),
   `Inv_id` int(10) DEFAULT NULL,
   `Cost` int(10) DEFAULT NULL,
+  UNIQUE(`id`),
   PRIMARY KEY (`SSN`, `Pid`, `FacID`, `Date_Time`),
   CONSTRAINT appointment_fk_emp FOREIGN KEY (`SSN`) REFERENCES `Doctor` (`SSN`),
   CONSTRAINT appointment_fk_patient FOREIGN KEY (`Pid`) REFERENCES `Patient` (`Pid`),
