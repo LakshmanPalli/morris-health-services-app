@@ -58,6 +58,17 @@
     .edit-cost-btn:hover {
         background-color: #218838;
     }
+	
+    /* Add more classes and colors as needed */
+    .edit-btn, .delete-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .edit-btn:hover, .delete-btn:hover {
+        color: blue;
+    
 </style>
 </head>
 <body>
@@ -69,10 +80,12 @@
 <table>
     <thead>
         <tr>
+			<th>id</th>
             <th>SSN</th>
             <th>Pid</th>
             <th>FacID</th>
             <th>Date_Time</th>
+			<th>Inv_id</th>
             <th>Cost</th>
             <th>Action</th>
         </tr>
@@ -83,7 +96,7 @@
         include("config.php");
 
         // Retrieve data from the database sorted based on SSN
-        $sql = "SELECT SSN, Pid, FacID, Date_Time, Cost
+        $sql = "SELECT id, SSN, Pid, FacID, Date_Time, Inv_id, Cost
                 FROM Appointment
                 ORDER BY SSN";
         $result = mysqli_query($con, $sql);
@@ -94,13 +107,15 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                 <tr>
+                    <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['SSN']; ?></td>
                     <td><?php echo $row['Pid']; ?></td>
                     <td><?php echo $row['FacID']; ?></td>
                     <td><?php echo $row['Date_Time']; ?></td>
+                    <td><?php echo $row['Inv_id']; ?></td>
                     <td><?php echo $row['Cost']; ?></td>
                     <td>
-                        <button class="edit-cost-btn" onclick="location.href='add_appointment.php'">Edit</button>
+						<a href="edit_appointment.php?id=<?php echo $row['id']; ?>" class="edit-btn">✏️</a>
                     </td>
                 </tr>
                 <?php
