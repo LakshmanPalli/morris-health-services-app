@@ -121,7 +121,7 @@ CREATE TABLE `Insurance Company` (
 
 CREATE TABLE `Invoice` (
   `Inv_id` int(10) NOT NULL AUTO_INCREMENT,
-  `Inv_date` int(10) NOT NULL,
+  `Inv_date` DATE NOT NULL,
   `Ins_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`Inv_id`),
   CONSTRAINT invoice_fk_insurance FOREIGN KEY (`Ins_id`) REFERENCES `Insurance Company` (`Ins_id`)

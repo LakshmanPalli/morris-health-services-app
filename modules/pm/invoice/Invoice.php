@@ -7,7 +7,7 @@ $sql_insurance = "SELECT DISTINCT Ins_id FROM Invoice";
 $result_insurance = mysqli_query($con, $sql_insurance);
 
 // Retrieve unique dates from the database
-$sql_dates = "SELECT DISTINCT Inv_Date FROM Invoice";
+$sql_dates = "SELECT DISTINCT Inv_Date FROM Invoice"; // check for the dates fetched
 $result_dates = mysqli_query($con, $sql_dates);
 
 // Retrieve all invoices data from the database
@@ -36,7 +36,6 @@ $result_all_invoices = mysqli_query($con, $sql_all_invoices);
 <form method="GET" action="generate_invoice.php">
     <label for="date">Select Date:</label>
     <select name="date" id="date">
-        <option value="">Select Date</option>
         <?php
         while ($row = mysqli_fetch_assoc($result_dates)) {
             echo "<option value='" . $row['Inv_Date'] . "'>" . $row['Inv_Date'] . "</option>";
@@ -45,7 +44,6 @@ $result_all_invoices = mysqli_query($con, $sql_all_invoices);
     </select>
     <label for="insurance">Select Insurance Company:</label>
     <select name="insurance" id="insurance">
-        <option value="">Select Insurance Company</option>
         <?php
         while ($row = mysqli_fetch_assoc($result_insurance)) {
             echo "<option value='" . $row['Ins_id'] . "'>" . $row['Ins_id'] . "</option>";
