@@ -3,7 +3,7 @@
 include("config.php");
 
 // Retrieve data from the database
-$sql = "SELECT i.Inv_id, i.Inv_Date, a.Cost AS Inv_Amt, i.Ins_id
+$sql = "SELECT i.Inv_id, i.Inv_Date, a.Cost AS Inv_Amt, i.Ins_id, a.Pid
         FROM Invoice i
         LEFT JOIN Appointment a ON i.Inv_id = a.Inv_id
         ORDER BY a.Date_Time DESC"; // Sorting by the latest appointment
@@ -80,6 +80,7 @@ $result = mysqli_query($con, $sql);
             <th>Invoice Date</th>
             <th>Invoice Amount</th>
             <th>Insurance Company ID</th>
+            <th>Patient ID</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -95,16 +96,17 @@ $result = mysqli_query($con, $sql);
                     <td><?php echo $row['Inv_Date']; ?></td>
                     <td><?php echo $row['Inv_Amt']; ?></td>
                     <td><a href="insurance_companies.php" class="navigation-link"><?php echo $row['Ins_id']; ?></a></td>
+                    <td><a href="patients.php" class="navigation-link"><?php echo $row['Pid']; ?></a></td>
                     <td>
-                        <!-- Generate Invoice button to navigate to Invoice_detail.php -->
-                        <button onclick="location.href='Invoice_detail.php?Inv_id=<?php echo $row['Inv_id']; ?>'" class="generate-invoice-btn">Generate Invoice</button>
+                        <!-- Generate Invoice button to navigate to patient_invoices.php -->
+                        <button onclick="location.href='patient_invoices.php?Pid=<?php echo $row['Pid']; ?>&Inv_id=<?php echo $row['Inv_id']; ?>'" class="generate-invoice-btn">Generate Invoice</button>
                     </td>
                 </tr>
                 <?php
             }
         } else {
             // No invoices found
-            echo "<tr><td colspan='5'>No invoices found</td></tr>";
+            echo "<tr><td colspan='6'>No invoices found</td></tr>";
         }
         ?>
     </tbody>
