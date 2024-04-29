@@ -123,16 +123,6 @@ VALUES
 ('2024-04-05', 5);   -- Invoice 5 created on 2024-04-05, insurance company 5
 
 
--- INSERT INTO `Invoice` (Inv_date, Ins_id)
--- VALUES
--- (UNIX_TIMESTAMP('2024-04-01'), 1),   -- Invoice 1 created on 2024-04-01, insurance company 1
--- (UNIX_TIMESTAMP('2024-04-02'), 2),   -- Invoice 2 created on 2024-04-02, insurance company 2
--- (UNIX_TIMESTAMP('2024-04-03'), 3),   -- Invoice 3 created on 2024-04-03, insurance company 3
--- (UNIX_TIMESTAMP('2024-04-04'), 4),   -- Invoice 4 created on 2024-04-04, insurance company 4
--- (UNIX_TIMESTAMP('2024-04-05'), 5);   -- Invoice 5 created on 2024-04-05, insurance company 5
-
--- --------------------------------------------------------
-
 
 --
 -- Dumping data for table `Appointment`
@@ -196,7 +186,6 @@ VALUES
 -- Dumping data for table `Treat`
 --
 
--- Sample data for Treat table
 INSERT INTO Treat (SSN, Pid)
 VALUES
 (123456789, 1),   -- Employee 123456789 treats patient 1

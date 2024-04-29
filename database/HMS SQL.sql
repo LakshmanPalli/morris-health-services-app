@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mhsdb`
+-- Database: `morris_healthservice`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbladmin`
+-- Table structure for table `employee`
 --
 
 CREATE TABLE `employee` (
@@ -130,6 +130,7 @@ CREATE TABLE `Invoice` (
 --
 -- Table structure for table `Facility`
 --
+
 CREATE TABLE `Facility` (
   `FacID` int(10) NOT NULL AUTO_INCREMENT,
   `Street` varchar(120) DEFAULT NULL,
@@ -161,7 +162,7 @@ CREATE TABLE `Appointment` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `FacID` int(10) NOT NULL,
   `SSN` varchar(50) NOT NULL,
-  `Pid` int(10) NOT NULL, -- Comma added
+  `Pid` int(10) NOT NULL,
   `Date_Time` timestamp NULL DEFAULT current_timestamp(),
   `Inv_id` int(10) DEFAULT NULL,
   `Cost` int(10) DEFAULT NULL,

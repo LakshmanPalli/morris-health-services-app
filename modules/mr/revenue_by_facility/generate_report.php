@@ -28,7 +28,7 @@ if(isset($_GET['date'])) {
                     <th>Facility Name</th>
                     <th>Street</th>
                     <th>City</th>
-                    <th>Total Revenue</th>
+                    <th>Revenue</th>
                 </tr>";
         
         // Initialize total revenue
@@ -40,15 +40,16 @@ if(isset($_GET['date'])) {
             $street = $row['Street'];
             $city = $row['City'];
             $desc = $row['Desc'];
-            $total_revenue += $row['TotalRevenue'];
+            $revenue = $row['TotalRevenue'];
+            $total_revenue += $revenue;
             
-            // Display facility details and total revenue
+            // Display facility details and revenue
             echo "<tr>
                     <td>$fac_id</td>
                     <td>$desc</td> 
                     <td>$street</td>
                     <td>$city</td>                   
-                    <td>{$row['TotalRevenue']}</td>
+                    <td>$revenue</td>
                   </tr>";
         }
         
