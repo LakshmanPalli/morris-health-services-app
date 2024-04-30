@@ -79,3 +79,15 @@ efm - Employee and Facility Management
 mr - Management and Reporting
 
 pm - Patient Management
+
+-----------------
+
+**Steps to Setup Project**
+
+Download the zip from https://github.com/LakshmanPalli/morris-health-services-app 
+
+Extract the file in xampp/htdocs
+
+Import the SQL files in phpMyAdmin, db name: `morris_healthservice`
+
+Browse  http://localhost/morris-health-services-app
