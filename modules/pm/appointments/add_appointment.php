@@ -89,10 +89,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <select id="SSN" name="SSN">
         <!-- Populate the dropdown with doctors -->
         <?php
-        $sql = "SELECT * FROM Doctor";
+        $sql = "SELECT * FROM Employee where Jobclass = 'doctor'";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<option value='" . $row['SSN'] . "'>" . $row['Name'] . "</option>";
+            echo "<option value='" . $row['SSN'] . "'>" . $row['FName'] . "</option>";
         }
         ?>
     </select>
